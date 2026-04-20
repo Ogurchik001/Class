@@ -8,27 +8,46 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="JournalPage" Foreground="#FF060606">
 
-    <Grid>
+    <Grid Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Background="White">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition Height="20"/>
-                <RowDefinition/>
-                <RowDefinition  Height="20"/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Button Name="J"  Grid.Row="1" Content="Журнал" Width="90" Height="50" Margin="5" Click="J_Click"/>
 
-            <Button Name="O" Grid.Row="3" Content="Отчет 1" Width="90" Height="50" Margin="5" Click="O_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
 
-            <Button Name="Ot" Grid.Row="5" Content="Отчет 2" Width="90" Height="50" Margin="5" Click="Ot_Click"/>
-        </Grid>
-        <Frame Name="MainFrame"  Grid.Column="1"/>
+        <TextBlock Text="Выберите дату" VerticalAlignment="Center" FontSize="25"/>
+        <DatePicker Grid.Column="1" FontSize="25" VerticalAlignment="Center"/>
+
+        <TextBlock Text="Выберите класс" VerticalAlignment="Center" FontSize="25" Grid.Row="2"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="0 5 0 5"/>
+
+        <TextBlock Text="Введите кг" VerticalAlignment="Center" FontSize="25" Grid.Row="4"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="0 5 0 5" FontSize="25"/>
+
+        <Button Grid.Row="6" Grid.Column="2" Margin="20 5 20 5" Content="Добавить" FontSize="20"/>
+
+        <ListView Name="JournalLV" Grid.ColumnSpan="3" Grid.Row="7">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding DateEvent}"/>
+                    <GridViewColumn Header="Параллель" DisplayMemberBinding="{Binding }"/>
+                    <GridViewColumn Header="Класс" DisplayMemberBinding="{Binding Class_ID.Name}"/>
+                    <GridViewColumn Header="КГ" DisplayMemberBinding="{Binding KiloFlourPaper}"/>
+                    </GridView>
+            </ListView.View>
+        </ListView>
+
+
     </Grid>
 </Page>

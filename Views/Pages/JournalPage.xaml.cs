@@ -23,21 +23,9 @@ namespace Lukianov_Class.Views.Pages
         public JournalPage()
         {
             InitializeComponent();
+            JournalLV.ItemsSource = App.context.Journal.ToList();
         }
 
-        private void J_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Report1Page());
-        }
-
-        private void O_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Report2Page());
-        }
-
-        private void Ot_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Report3Page());
-        }
+        
     }
 }

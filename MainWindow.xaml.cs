@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lukianov_Class.Views.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,21 @@ namespace Lukianov_Class
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void J_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new JournalPage());
+        }
+
+        private void O_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Report1Page());
+        }
+
+        private void Ot_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Report2Page());
         }
     }
 }

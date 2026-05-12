@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lukianov_Class.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,31 @@ namespace Lukianov_Class.Views.Pages
         {
             InitializeComponent();
             JournalLV.ItemsSource = App.context.Journal.ToList();
+
+            ClassCmb.SelectedValuePath = "ClassID";
+            ClassCmb.DisplayMemberPath = "Name";
+            ClassCmb.ItemsSource = App.context.Class.ToList();
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ClassTb.Text)|| string.IsNullOrEmpty(KgTb.Text)|| string.IsNullOrEmpty(ClassCmb.Text)|| string.IsNullOrEmpty(DateDp.Text))
+            {
+                MessageBox.Show("Заполните все поля!", "Внимание" );
+            }
+            else
+            {
+                Journal newJournal = new Journal()
+                {
+                    DateEvent = (DateTime)DateDp.SelectedDate,
+                    Class = ClassCmb.SelectedItem as Class,
+                    KiloFlourPaper = KgTb.Text
+
+                };
+                App.context.Journal.Add(newJournal);
+                App.context.SaveChanges();
+                MessageBox.Show("Запись добавлена");
+            }
+        }
     }
 }

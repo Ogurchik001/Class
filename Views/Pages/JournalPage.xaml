@@ -26,23 +26,23 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Выберите дату" VerticalAlignment="Center" FontSize="25"/>
-        <DatePicker Grid.Column="1" FontSize="25" VerticalAlignment="Center"/>
+        <TextBlock Text="Выберите дату" Name="DateTb" VerticalAlignment="Center" FontSize="25"/>
+        <DatePicker Grid.Column="1" FontSize="25" Name="DateDp"  VerticalAlignment="Center"/>
 
-        <TextBlock Text="Выберите класс" VerticalAlignment="Center" FontSize="25" Grid.Row="2"/>
-        <ComboBox Grid.Row="2" Grid.Column="1" Margin="0 5 0 5"/>
+        <TextBlock Text="Выберите класс" Name="ClassTb" VerticalAlignment="Center" FontSize="25" Grid.Row="2"/>
+        <ComboBox Name="ClassCmb" Grid.Row="2" Grid.Column="1" Margin="0 5 0 5"/>
 
-        <TextBlock Text="Введите кг" VerticalAlignment="Center" FontSize="25" Grid.Row="4"/>
+        <TextBlock Text="Введите кг" Name="KgTb" VerticalAlignment="Center" FontSize="25" Grid.Row="4"/>
         <TextBox Grid.Column="1" Grid.Row="4" Margin="0 5 0 5" FontSize="25"/>
 
-        <Button Grid.Row="6" Grid.Column="2" Margin="20 5 20 5" Content="Добавить" FontSize="20"/>
+        <Button Grid.Row="6" Grid.Column="2" Margin="20 5 20 5" Click="Button_Click" Content="Добавить" FontSize="20"/>
 
         <ListView Name="JournalLV" Grid.ColumnSpan="3" Grid.Row="7">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding DateEvent}"/>
-                    <GridViewColumn Header="Параллель" DisplayMemberBinding="{Binding }"/>
-                    <GridViewColumn Header="Класс" DisplayMemberBinding="{Binding Class_ID.Name}"/>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding DateEvent, StringFormat=dd.MM.yyyy}"/>
+                    <GridViewColumn Header="Параллель" DisplayMemberBinding="{Binding Class.Parallel.Name}"/>
+                    <GridViewColumn Header="Класс" DisplayMemberBinding="{Binding Class.Name}"/>
                     <GridViewColumn Header="КГ" DisplayMemberBinding="{Binding KiloFlourPaper}"/>
                     </GridView>
             </ListView.View>
